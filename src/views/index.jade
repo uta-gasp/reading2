@@ -1,0 +1,78 @@
+-
+    var ids = {
+        text: 'text',
+        textContainer: 'textContainer',
+        textEditor: 'textEditor',
+        controls: 'controls',
+        options: 'options',
+        statistics: 'statistics',
+        visualization: 'visualization',
+        wordlist: 'wordlist'
+    };
+
+    // the order must match the corresponding enums
+    var optionLists = {
+        colorMetrics: [ 'none', 'duration', 'char speed', 'syllable speed' ],   // Matric@utils/metric.js
+        mappings: [ 'static', 'dynamic' ]        // Mapping@path.js
+    };
+
+doctype html
+html
+    head
+        title School Reading
+        meta(charset="utf-8")
+        link(rel='stylesheet', href='app.css')
+        script(src='libs/gazeTargets/gazeTargets.js')
+        script(src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js")
+        script.
+            var config = {
+                apiKey: "AIzaSyCHAhFtSM2bKNEzTbKVOiYEv-wpRi2zjdU",
+                authDomain: "burning-torch-9217.firebaseapp.com",
+                databaseURL: "https://burning-torch-9217.firebaseio.com",
+                storageBucket: "burning-torch-9217.appspot.com",
+                messagingSenderId: "777150892492"
+            };
+            if (this["firebase"]) {
+                firebase.initializeApp(config);
+            }
+
+        script(src='libs/shortcut.js')
+        script(src='libs/regression.js')
+        script(src='libs/murmurhash3_gc.js')
+        script(src='libs/EventEmitter.min.js')
+        script(src='https://code.responsivevoice.org/responsivevoice.js')
+
+    body
+        include ./components/text.jade
+        +controls( ids.textContainer, ids.text )
+
+        include ./components/controls.jade
+        +controls( ids.controls )
+
+        include ./components/options.jade
+        +options( ids.options, optionLists )
+
+        include ./components/textEditor.jade
+        +textEditor( ids.textEditor )
+
+        include ./components/statistics.jade
+        +statistics( ids.statistics )
+
+        include ./components/visualization.jade
+        +visualization( ids.visualization )
+
+        include ./components/wordlist.jade
+        +wordlist( ids.wordlist )
+
+        script(src='app.js')
+        script.
+            Reading.init({
+                text: '##{ids.text}',
+                textContainer: '##{ids.textContainer}',
+                visualization: '##{ids.visualization}',
+                wordlist: '##{ids.wordlist}',
+                controls: '##{ids.controls}',
+                options: '##{ids.options}',
+                statistics: '##{ids.statistics}',
+                textEditor: '##{ids.textEditor}',
+            });

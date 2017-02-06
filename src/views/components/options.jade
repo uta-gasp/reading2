@@ -1,0 +1,127 @@
+//- requires:
+//-     slideout.less
+
+mixin options(id, lists)
+    div(id=id).slideout.left
+        .title Options
+        .slideout_inner
+            .group
+                .name General
+                .row
+                    .label Name
+                    input.value#userName(type="text")
+            .group
+                .name Text
+                .row
+                    .label Text
+                    .cell
+                        select.value#textID
+                        button.editText Edit...
+                .row
+                    .label Color
+                    input.value#text(type="color")
+                .row
+                    .label Font size
+                    input.value#fontSize
+                .row
+                    .cell
+                        input#hiddenText(type="checkbox")
+                        label(for="hiddenText") Hidden initially
+                .row
+                    .label Alignment
+                    .cell
+                        input#alignLeft(type="radio" name="textAlign", value="left")
+                        label.listItem.text-align-left(for="align-left")
+                        input#alignCenter(type="radio" name="textAlign", value="center")
+                        label.listItem.text-align-center(for="align-center")
+                .row
+                    .label Spacing
+                    .cell
+                        input#spacing0(type="radio" name="lineSpacing", value="0")
+                        label.listItem.line-spacing-0(for="spacing0")
+                        input#spacing1(type="radio" name="lineSpacing", value="1")
+                        label.listItem.line-spacing-1(for="spacing1")
+                        input#spacing2(type="radio" name="lineSpacing", value="2")
+                        label.listItem.line-spacing-2(for="spacing2")
+                        input#spacing3(type="radio" name="lineSpacing", value="3")
+                        label.listItem.line-spacing-3(for="spacing3")
+                        input#spacing4(type="radio" name="lineSpacing", value="4")
+                        label.listItem.line-spacing-4(for="spacing4")
+            .group
+                .name Gaze
+                .row
+                    .cell
+                        input#showPointer(type="checkbox")
+                        label(for="showPointer") Show pointer
+                .row
+                    .cell
+                        input#syllabificationEnabled(type="checkbox")
+                        label(for="syllabificationEnabled") Syllabify words
+                    .cell
+                        span after
+                        input.value#syllabificationThreshold(type="number" min="1500" max="7000" step="100")
+                        span ms
+                .row
+                    .cell
+                        input#speechEnabled(type="checkbox")
+                        label(for="speechEnabled") Pronounce words
+                    .cell
+                        span after
+                        input.value#speechThreshold(type="number" min="1000" max="5000" step="100")
+                        span ms
+                .row
+                    .cell
+                        input#highlightWord(type="checkbox")
+                        label(for="highlightWord") Highlight focused word
+                    .cell
+                        span with
+                        input.value#currentWord(type="color")
+            //
+                .group
+                    .name Mapping
+                    .row
+                        .label Type
+                        select.value#path_mapping
+                            each mapping in lists.mappings
+                                option(value="#{mapping}") #{mapping}
+                .group
+                    .name Session visualization
+                    .row
+                        .label Word color metric
+                        select.value#path_colorMetric
+                            each metric in lists.colorMetrics
+                                option(value="#{metric}") #{metric}
+                    .row
+                        .label Show IDs
+                        input.value#path_showIDs(type="checkbox")
+                    .row
+                        .label Show word-fixation connections
+                        input.value#path_showConnections(type="checkbox")
+                    .row
+                        .label Show saccades
+                        input.value#path_showSaccades(type="checkbox")
+                    .row
+                        .label Show fixations
+                        input.value#path_showFixations(type="checkbox")
+                    .row
+                        .label Show orig. fixation location
+                        input.value#path_showOriginalFixLocation(type="checkbox")
+                .group
+                    .name Summary visualization
+                    .row
+                        .label Color metric
+                        select.value#wordGazing_colorMetric
+                            each metric in lists.colorMetrics
+                                option(value="#{metric}") #{metric}
+                    .row
+                        .label Show fixations
+                        input.value#wordGazing_showFixations(type="checkbox")
+                    .row
+                        .label Unite spacings
+                        input.value#wordGazing_uniteSpacings(type="checkbox")
+                    .row
+                        .label Show regressions
+                        input.value#wordGazing_showRegressions(type="checkbox")
+            input.save(type="button", value="Save")
+            input.close(type="button", value="Close")
+            input.reset(type="button", value="Reset")

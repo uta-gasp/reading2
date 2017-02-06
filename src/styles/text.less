@@ -1,0 +1,93 @@
+@fontColor: #775;
+@backColor: #fff;
+@margin: 15;
+@lineCountXSmall: 4;
+@lineCountSmall: 5;
+@lineCountMedium: 6;
+@lineCountLarge: 7;
+@lineCountXLarge: 8;
+
+#textContainer {
+    position: relative;
+    height: unit(100 - 2 * @margin, vh);
+    margin: unit(@margin, vh) unit(@margin, vw);
+    background-color: @backColor;
+
+    #text {
+        color: @fontColor;
+        font-size: 20pt;
+        font-family: Calibri, Arial, sans-serif;
+        font-weight: bold;
+
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        text-align: center;
+
+        &.alignLeft {
+            text-align: left;
+        }
+
+        &.x-large {
+            line-height: (100vh - 2 * unit(@margin, vh)) / @lineCountXSmall;
+        }
+        &.large {
+            line-height: (100vh - 2 * unit(@margin, vh)) / @lineCountSmall;
+        }
+        &.median {
+            line-height: (100vh - 2 * unit(@margin, vh)) / @lineCountMedium;
+        }
+        &.small {
+            line-height: (100vh - 2 * unit(@margin, vh)) / @lineCountLarge;
+        }
+        &.x-small {
+            line-height: (100vh - 2 * unit(@margin, vh)) / @lineCountXLarge;
+        }
+
+        &.invisible {
+            visibility: hidden;
+        }
+
+        &:hover .word {
+            /* outline: 2px solid #ccf; */
+        }
+
+        .line {
+            display: block;
+
+            &.h1 {
+                color: #5e2095;
+            }
+
+            &.h2 {
+                color: #0e6095;
+            }
+
+            &.authors {
+                color: lighten(@fontColor, 25%);
+            }
+        }
+
+        .currentWord {
+            color: #c00;
+        }
+
+        .word {
+            /* nothing is needed, just the class declaration */
+        }
+
+        .hyphens {
+            color: @backColor;
+        }
+
+        .hyphen {
+            color: #ffa0a0;
+        }
+
+        .bold {
+            color: black;
+        }
+    }
+}

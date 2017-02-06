@@ -1,0 +1,29 @@
+//- requires:
+
+mixin controls(id)
+    div(id=id).controls.centered
+        .button.calibrate.disabled Odota opettajan ohjetta
+        .button.toggle.disabled.hidden Aloita
+        .button.nextPage.disabled.hidden Jatka
+        .button.thanks.disabled.hidden Kiitos!
+        .hidden
+            span.device Connecting
+            .buttonBlock.etud
+                .button.options.disabled Options
+                .separator
+                .button.__calibrate.disabled Calibrate
+                .separator
+                .button.__toggle.disabled Start
+                .separator
+                .button.__nextPage.disabled Next
+            .separator
+            .buttonBlock.text.hidden
+            .separator
+            .buttonBlock.spacing.hidden
+            .separator
+            .button.loadSession Gaze plot
+            .button.loadCondition.hidden Load condition
+            .button.loadFile.hidden Load file
+            .separator
+            .button.simulate.hidden Simulate
+            .button.gazeReplay.hidden Replay

@@ -1,0 +1,10 @@
+//- requires:
+//-     slideout.less
+
+mixin textEditor(id)
+    div(id=id).hidden
+        .inner
+            textarea.text
+            br
+            button.save Save
+            button.cancel Cancel
