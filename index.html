@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>School Reading</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="app.css">
+    <script src="libs/gazeTargets/gazeTargets.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+    <script>
+      var config = {
+          apiKey: "AIzaSyCHAhFtSM2bKNEzTbKVOiYEv-wpRi2zjdU",
+          authDomain: "burning-torch-9217.firebaseapp.com",
+          databaseURL: "https://burning-torch-9217.firebaseio.com",
+          storageBucket: "burning-torch-9217.appspot.com",
+          messagingSenderId: "777150892492"
+      };
+      if (this["firebase"]) {
+          firebase.initializeApp(config);
+      }
+      
+    </script>
+    <script src="libs/shortcut.js"></script>
+    <script src="libs/regression.js"></script>
+    <script src="libs/murmurhash3_gc.js"></script>
+    <script src="libs/EventEmitter.min.js"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+  </head>
+  <body>
+        <div id="textContainer">
+          <div id="text"></div>
+        </div>
+        <div id="controls" class="controls centered">
+          <div class="button calibrate disabled">Odota opettajan ohjetta</div>
+          <div class="button toggle disabled hidden">Aloita</div>
+          <div class="button nextPage disabled hidden">Jatka</div>
+          <div class="button thanks disabled hidden">Kiitos!</div>
+          <div class="hidden"><span class="device">Connecting</span>
+            <div class="buttonBlock etud">
+              <div class="button options disabled">Options</div>
+              <div class="separator"></div>
+              <div class="button __calibrate disabled">Calibrate</div>
+              <div class="separator"></div>
+              <div class="button __toggle disabled">Start</div>
+              <div class="separator"></div>
+              <div class="button __nextPage disabled">Next</div>
+            </div>
+            <div class="separator"></div>
+            <div class="buttonBlock text hidden"></div>
+            <div class="separator"></div>
+            <div class="buttonBlock spacing hidden"></div>
+            <div class="separator"></div>
+            <div class="button loadSession">Gaze plot</div>
+            <div class="button loadCondition hidden">Load condition</div>
+            <div class="button loadFile hidden">Load file</div>
+            <div class="separator"></div>
+            <div class="button simulate hidden">Simulate</div>
+            <div class="button gazeReplay hidden">Replay</div>
+          </div>
+        </div>
+        <div id="options" class="slideout left">
+          <div class="title">Options</div>
+          <div class="slideout_inner">
+            <div class="group">
+              <div class="name">General</div>
+              <div class="row">
+                <div class="label">Name</div>
+                <input id="userName" type="text" class="value">
+              </div>
+            </div>
+            <div class="group">
+              <div class="name">Text</div>
+              <div class="row">
+                <div class="label">Text</div>
+                <div class="cell">
+                  <select id="textID" class="value"></select>
+                  <button class="editText">Edit...</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="label">Color</div>
+                <input id="text" type="color" class="value">
+              </div>
+              <div class="row">
+                <div class="label">Font size</div>
+                <input id="fontSize" class="value">
+              </div>
+              <div class="row">
+                <div class="cell">
+                  <input id="hiddenText" type="checkbox">
+                  <label for="hiddenText">Hidden initially</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="label">Alignment</div>
+                <div class="cell">
+                  <input id="alignLeft" type="radio" name="textAlign" value="left">
+                  <label for="align-left" class="listItem text-align-left"></label>
+                  <input id="alignCenter" type="radio" name="textAlign" value="center">
+                  <label for="align-center" class="listItem text-align-center"></label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="label">Spacing</div>
+                <div class="cell">
+                  <input id="spacing0" type="radio" name="lineSpacing" value="0">
+                  <label for="spacing0" class="listItem line-spacing-0"></label>
+                  <input id="spacing1" type="radio" name="lineSpacing" value="1">
+                  <label for="spacing1" class="listItem line-spacing-1"></label>
+                  <input id="spacing2" type="radio" name="lineSpacing" value="2">
+                  <label for="spacing2" class="listItem line-spacing-2"></label>
+                  <input id="spacing3" type="radio" name="lineSpacing" value="3">
+                  <label for="spacing3" class="listItem line-spacing-3"></label>
+                  <input id="spacing4" type="radio" name="lineSpacing" value="4">
+                  <label for="spacing4" class="listItem line-spacing-4"></label>
+                </div>
+              </div>
+            </div>
+            <div class="group">
+              <div class="name">Gaze</div>
+              <div class="row">
+                <div class="cell">
+                  <input id="showPointer" type="checkbox">
+                  <label for="showPointer">Show pointer</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="cell">
+                  <input id="syllabificationEnabled" type="checkbox">
+                  <label for="syllabificationEnabled">Syllabify words</label>
+                </div>
+                <div class="cell"><span>after</span>
+                  <input id="syllabificationThreshold" type="number" min="1500" max="7000" step="100" class="value"><span>ms</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="cell">
+                  <input id="speechEnabled" type="checkbox">
+                  <label for="speechEnabled">Pronounce words</label>
+                </div>
+                <div class="cell"><span>after</span>
+                  <input id="speechThreshold" type="number" min="1000" max="5000" step="100" class="value"><span>ms</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="cell">
+                  <input id="highlightWord" type="checkbox">
+                  <label for="highlightWord">Highlight focused word</label>
+                </div>
+                <div class="cell"><span>with</span>
+                  <input id="currentWord" type="color" class="value">
+                </div>
+              </div>
+            </div>
+            <!--
+            .group
+                .name Mapping
+                .row
+                    .label Type
+                    select.value#path_mapping
+                        each mapping in lists.mappings
+                            option(value="") 
+            .group
+                .name Session visualization
+                .row
+                    .label Word color metric
+                    select.value#path_colorMetric
+                        each metric in lists.colorMetrics
+                            option(value="") 
+                .row
+                    .label Show IDs
+                    input.value#path_showIDs(type="checkbox")
+                .row
+                    .label Show word-fixation connections
+                    input.value#path_showConnections(type="checkbox")
+                .row
+                    .label Show saccades
+                    input.value#path_showSaccades(type="checkbox")
+                .row
+                    .label Show fixations
+                    input.value#path_showFixations(type="checkbox")
+                .row
+                    .label Show orig. fixation location
+                    input.value#path_showOriginalFixLocation(type="checkbox")
+            .group
+                .name Summary visualization
+                .row
+                    .label Color metric
+                    select.value#wordGazing_colorMetric
+                        each metric in lists.colorMetrics
+                            option(value="") 
+                .row
+                    .label Show fixations
+                    input.value#wordGazing_showFixations(type="checkbox")
+                .row
+                    .label Unite spacings
+                    input.value#wordGazing_uniteSpacings(type="checkbox")
+                .row
+                    .label Show regressions
+                    input.value#wordGazing_showRegressions(type="checkbox")
+            -->
+            <input type="button" value="Save" class="save">
+            <input type="button" value="Close" class="close">
+            <input type="button" value="Reset" class="reset">
+          </div>
+        </div>
+        <div id="textEditor" class="hidden">
+          <div class="inner">
+            <textarea class="text"></textarea><br>
+            <button class="save">Save</button>
+            <button class="cancel">Cancel</button>
+          </div>
+        </div>
+        <div id="statistics" class="statistics hidden">
+          <div class="wait">&nbsp;</div>
+        </div>
+        <!--
+        .container
+            .title Statistics
+            textarea.text
+            .button-strip
+                input.close(type="button", value="Close")
+                input.saveLocal(type="button", value="Save to file")
+                input.saveRemote(type="button", value="Save to DB")
+        -->
+        <div id="visualization" class="path invisible">
+          <canvas></canvas>
+          <div class="wait">&nbsp;</div>
+          <div class="close"></div>
+          <div class="navigation invisible">
+            <div class="button prev">Prev</div>
+            <div class="button next">Next</div>
+          </div>
+          <div id="session" class="prompt">Select a session:
+            <div>
+              <select id="categories"></select>
+              <select id="sessions"></select>
+              <input type="button" value="Select" autofocus="autofocus" class="select">
+            </div>
+          </div>
+          <div id="file" class="prompt">
+            <div class="title">Select a file:</div>
+            <input type="file" class="file">
+          </div>
+        </div>
+        <div id="wordlist" class="invisible">
+          <div class="button">Words</div>
+          <div class="table invisible"></div>
+        </div>
+    <script src="app.js"></script>
+    <script>
+      Reading.init({
+          text: '#text',
+          textContainer: '#textContainer',
+          visualization: '#visualization',
+          wordlist: '#wordlist',
+          controls: '#controls',
+          options: '#options',
+          statistics: '#statistics',
+          textEditor: '#textEditor',
+      });
+    </script>
+  </body>
+</html>
