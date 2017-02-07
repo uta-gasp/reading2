@@ -22,6 +22,10 @@
 
         _textContainer = document.querySelector( this.root );
 
+        this.firstPage = [
+            'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+        ];
+
         this.texts = [
             /*[
                 'Steroidivyöhykkeen pienimpiä kivikappaleita sanotaan',
@@ -70,9 +74,6 @@
             ]
             */
             [
-                [
-                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
-                ],
                 [
                 'Krokotiili hiihtää kevääseen|h1',
                 'Murisevan metsän pieni krokotiili katsoi ikkunasta.',
@@ -148,9 +149,6 @@
 
             [
                 [
-                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
-                ],
-                [
                 'Heinähattu, Vilttitossu ja iso Elsa|h1',
                 'Heinähattu on tunnollinen koululainen.',
                 'Pikkusisko Vilttitossu on aivan toisenlainen.',
@@ -201,9 +199,6 @@
             ],
 
             [
-                [
-                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
-                ],
                 [
                 'Muumilaaksossa|h1',
                 'Eräänä harmaana aamuna ensilumi laskeutui Muumilaaksoon.',
@@ -264,9 +259,6 @@
 
             [
                 [
-                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
-                ],
-                [
                 'Olympialaiset|h1',
                 'Olympialaiset on kuuluisin kansainvälinen urheilukilpailu.',
                 'Olympialaisiin voi osallistua urheilijoita',
@@ -302,9 +294,6 @@
 
             [
                 [
-                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
-                ],
-                [
                 'Suomi on tasavalta|h1',
                 'Suomi on itsenäinen valtio. Se tarkoittaa sitä, että',
                 'Suomi päättää omista asioistaan ja sillä on lippu ja',
@@ -331,9 +320,6 @@
             ],
 
             [
-                [
-                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
-                ],
                 [
                 'Suomi ja suomalaisuus|h1',
                 'Suomalaisilla on monta ylpeyden aihetta. Suomessa on puhdas luonto ja',
@@ -362,9 +348,6 @@
 
             [
                 [
-                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
-                ],
-                [
                 'Helsinki on Suomen pääkaupunki|h1',
                 'Helsinki sijaitsee Etelä-Suomessa Itämeren rannalla. Helsinki on',
                 'Suomen suurin kaupunki. Siellä on asukkaita yli 600 000.',
@@ -391,9 +374,6 @@
             ],
 
             [
-                [
-                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
-                ],
                 [
                 'Suomen kaupunkeja|h1',
                 'Espoo\\b on Suomen toiseksi suurin kaupunki. Vuonna 2012 siellä asui',
@@ -463,6 +443,10 @@
 
         this.switchText( _textIndex );
         this.switchSpacing( _spacingIndex );
+
+        this.texts.forEach( text => {
+            text.unshift( this.firstPage );
+        })
     }
 
     Text.prototype.reset = function () {
@@ -564,15 +548,17 @@
 
     Text.prototype.getText = function () {
         var result = [];
-        this.texts[ _textIndex ].forEach( page => {
-            result.push( page.join( '\n' ) );
+        this.texts[ _textIndex ].forEach( (page, index) => {
+            if (index > 0) {
+                result.push( page.join( '\n' ) );
+            }
         });
         return result.join( '\n\n' );
     };
 
     Text.prototype.setText = function (text) {
         var textRef = this.texts[ _textIndex ];
-        textRef.length = 0;
+        textRef.length = 1;
         textRef.isModified = true;
 
         var pages = text.split( '\n\n' );
@@ -585,7 +571,7 @@
 
     Text.prototype.getModifiedTexts = function () {
         return this.texts.map( text => {
-            return text.isModified ? text : [];
+            return text.isModified ? text.slice(1) : [];
         });
     }
 
@@ -596,6 +582,7 @@
                 return;
             }
 
+            text.unshift( this.firstPage );
             text.isModified = true;
             this.texts[ index ] = text;
         })

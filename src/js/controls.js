@@ -64,6 +64,7 @@
             setButtonDisabled( _toggle, true );
             setButtonHidden( _calibrate, true );
             GazeTargets.ETUDriver.toggleTracking();
+            setButtonHidden( instructions, true );
         });
 
         _nextPage = this.root.querySelector( '.nextPage' );
@@ -73,6 +74,7 @@
                 this._updateNextPageButton();
             }
             else {
+                setButtonDisabled( _nextPage, true );
                 GazeTargets.ETUDriver.toggleTracking();
             }
         });
