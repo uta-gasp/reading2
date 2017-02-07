@@ -9,17 +9,19 @@
     //      options: {
     //          highlightingEnabled
     //          syllabificationEnabled
-    //          speechEnabled
     //          syllabificationThreshold - minimum fixation duration in ms to consider the word should be split
+    //          syllabificationSmart     - if enabled, computeds the threshold after the first page is read
+    //          speechEnabled
     //          speechThreshold - minimum fixation duration in ms to consider the word should be pronounced
     //      }
     function Syllabifier( options ) {
 
         this.highlightingEnabled = options.highlightingEnabled || false;
         this.syllabificationEnabled = options.syllabificationEnabled || false;
-        this.syllabificationThreshold = options.syllabificationThreshold || 3000;
+        this.syllabificationThreshold = options.syllabificationThreshold || 2500;
+        this.syllabificationSmart = options.syllabificationSmart || true;
         this.speechEnabled = (options.speechEnabled || false) && (typeof responsiveVoice !== 'undefined');
-        this.speechThreshold = options.speechThreshold || 5000;
+        this.speechThreshold = options.speechThreshold || 4000;
 
         this.events = new EventEmitter();
 
@@ -91,6 +93,13 @@
                 this._tick();
             }, 30);
         }
+    };
+
+    Syllabifier.prototype.setAvgWordReadingDuration = function ( avgWordReadingDuration ) {
+        this.syllabificationThreshold = Math.max( 1500, Math.max( 3000,
+            avgWordReadingDuration * 4
+        ));
+        console.log(this.syllabificationThreshold);
     };
 
     Syllabifier.prototype._tick = function () {

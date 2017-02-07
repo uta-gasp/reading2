@@ -92,6 +92,10 @@ Reading.init = function (components) {
         simulate: rtv.queryData.bind( rtv ),
         gazeReplay: gazeReplay.queryData.bind( gazeReplay ),
         nextPage: () => {
+            if (text.getPageIndex() === 0) {
+                const avgWordReadingDuration = statistics.getAvgWordReadingDuration();
+                syllabifier.setAvgWordReadingDuration( avgWordReadingDuration );
+            }
             text.nextPage();
             GazeTargets.updateTargets();
         },

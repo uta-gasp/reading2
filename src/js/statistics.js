@@ -178,6 +178,28 @@
         }
     };
 
+    Statistics.prototype.getAvgWordReadingDuration = function () {
+        const page = this._getPage( 0 );
+        if (!page) {
+            return 500;
+        }
+
+        let sum = 0;
+        let count = 0;
+        page.words.forEach( record => {
+            if (record.duration > 150) {
+                sum += record.duration;
+                count++;
+            }
+        });
+
+        if (!count) {
+            return 500;
+        }
+
+        return sum / count;
+    };
+
     // private
     Statistics.prototype._getPage =  function ( pageID ) {
         var page = _pages[ pageID ];
