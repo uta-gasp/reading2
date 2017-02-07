@@ -520,25 +520,6 @@
         _textContainer.classList.add( this.spacings[ _spacingIndex ] );
     };
 
-    Text.prototype.getTextTitles = function () {
-        return this.texts.map( text => {
-            return this.getTextTitle( text );
-        });
-    }
-
-    Text.prototype.getTextTitle = function (text) {
-        const pageIndex = Math.min( 1, text.length );
-        return text[ pageIndex ][0].split( '|' )[0];
-    }
-
-    Text.prototype.getCurrentTextIndex = function () {
-        return _textIndex;
-    };
-
-    Text.prototype.getCurrentSpacingIndex = function () {
-        return _spacingIndex;
-    };
-
     Text.prototype.show = function() {
         _textContainer.classList.remove( 'invisible' );
     };
@@ -562,6 +543,25 @@
         };
     };
 
+    Text.prototype.getCurrentTextIndex = function () {
+        return _textIndex;
+    };
+
+    Text.prototype.getCurrentSpacingIndex = function () {
+        return _spacingIndex;
+    };
+
+    Text.prototype.getTextTitles = function () {
+        return this.texts.map( text => {
+            return this.getTextTitle( text );
+        });
+    }
+
+    Text.prototype.getTextTitle = function (text) {
+        const pageIndex = Math.min( 1, text.length );
+        return text[ pageIndex ][0].split( '|' )[0];
+    }
+
     Text.prototype.getText = function () {
         var result = [];
         this.texts[ _textIndex ].forEach( page => {
@@ -573,6 +573,7 @@
     Text.prototype.setText = function (text) {
         var textRef = this.texts[ _textIndex ];
         textRef.length = 0;
+        textRef.isModified = true;
 
         var pages = text.split( '\n\n' );
         pages.forEach( page => {
@@ -582,8 +583,23 @@
         this.switchText( _textIndex );
     };
 
+    Text.prototype.getModifiedTexts = function () {
+        return this.texts.map( text => {
+            return text.isModified ? text : [];
+        });
+    }
+
     Text.prototype.setTexts = function (texts) {
-        this.texts = texts;
+        //this.texts = texts;
+        texts.forEach( (text, index) => {
+            if (!text.length) {
+                return;
+            }
+
+            text.isModified = true;
+            this.texts[ index ] = text;
+        })
+
         this.switchText( _textIndex );
     };
 

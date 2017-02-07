@@ -53,7 +53,7 @@
         _services = services;
 
         _services.userName = _services.userName || logError( 'userName' );
-        _services.texts = _services.texts || logError( 'texts' );
+        _services.modifiedTexts = _services.modifiedTexts || logError( 'modifiedTexts' );
         _services.textID = _services.textID || logError( 'textID' );
         _services.hideText = _services.hideText || logError( 'hideText' );
         _services.textAlign = _services.textAlign || logError( 'textAlign' );
@@ -102,10 +102,10 @@
         document.body.appendChild( this._style );
 
         const texts = this._slideout.querySelector( '#textID' );
-        _services.texts().forEach( (text, id) => {
+        _utils.textTitles().forEach( (title, id) => {
             let option = document.createElement( 'option' );
             option.value = id;
-            option.textContent = _utils.getTextTitle( text );
+            option.textContent = title;
             texts.appendChild( option );
         });
 

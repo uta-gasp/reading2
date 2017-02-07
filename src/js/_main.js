@@ -106,8 +106,8 @@ Reading.init = function (components) {
             statistics.userName :
             (statistics.userName = value );
         },
-        texts: function (value) { return value === undefined ?
-            text.texts :
+        modifiedTexts: function (value) { return value === undefined ?
+            text.getModifiedTexts() :
             text.setTexts( value );
         },
         textID: function (value) { return value === undefined ?
@@ -200,7 +200,8 @@ Reading.init = function (components) {
         }
     }, {    // utils
         editText: textEditor.show.bind( textEditor ),
-        getTextTitle: text.getTextTitle.bind( text )
+        textTitles: text.getTextTitles.bind( text )
+        //getTextTitle: text.getTextTitle.bind( text )
     });
 
     /*var gazeTargetsManager = */new Reading.GazeTargetsManager({
