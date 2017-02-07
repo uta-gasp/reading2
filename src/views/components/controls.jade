@@ -2,8 +2,15 @@
 
 mixin controls(id)
     div(id=id).controls.centered
-        .button.calibrate.disabled Odota opettajan ohjetta
-        .button.toggle.disabled.hidden Aloita
+        .instructions
+            p Lue ohjeet huolellisesti ja odota, että kaikki ovat valmiita.
+                u Odota aina lupaa, ennen kuin painat nappia!
+            p Kun saat luvan, paina ”Aloita peli”-nappia hiirellä. Ruudulle ilmestyy kaksi palloa, jotka liikkuvat kun heilutat päätäsi. Nämä ovat sinun silmäsi! Ota mukava asento ja liiku eteen- tai taaksepäin, kunnes keltaiset pallot ovat rajojen sisällä.
+            p Paina ”Aloita”-nappia saatuasi luvan. Pelissä kärpänen lentää hehkulampusta toiseen. Seuraa kärpästä silmilläsi, mutta älä heiluta päätäsi paljon. Kun kärpänen laskeutuu lampulle, keskity katseellasi lampussa olevaan punaiseen maalitauluun. Kun katsot sitä tarpeeksi pitkään, maalitaulu katoaa. Klikkaa hiirtä samalla kun katsot lamppua, niin kärpänen lentää seuraavaan lamppuun. Jos laite ei saanut hyvää kuvaa silmistäsi, kärpänen saattaa lentää uudestaan samalle lampulle. Kun kaikki lamput ovat syttyneet, pelaat peliä jossa etsitään otuksia kuvasta. Pelin jälkeen odota lupaa, ennen kuin klikkaat seuraavaa nappia.
+            p Lukiessasi kone yrittää auttaa tavuttamalla vaikeita sanoja. Kun olet lukenut sivun loppuun, paina nurkassa olevaa ”Jatka”-nappia. Viimeisen sivun jälkeen paina ”Lopeta”.
+
+        .button.low.calibrate.disabled Aloita peli
+        .button.toggle.disabled.hidden Lue teksti
         .button.nextPage.disabled.hidden Jatka
         .button.thanks.disabled.hidden Kiitos!
         .hidden

@@ -50,10 +50,13 @@
             GazeTargets.ETUDriver.showOptions();
         });
 
+        const instructions = this.root.querySelector( '.instructions' );
+
         _calibrate = this.root.querySelector( '.calibrate' );
         _calibrate.addEventListener('click', function () {
             GazeTargets.ETUDriver.calibrate();
             setButtonHidden( _calibrate, true );
+            setButtonHidden( instructions, true );
         });
 
         _toggle = this.root.querySelector( '.toggle' );
@@ -186,7 +189,7 @@
         setButtonDisabled( _nextPage, !state.isTracking );
         setButtonHidden( _thanks, !state.isStopped );
 
-        _toggle.textContent = state.isTracking ? 'Stop' : 'Aloita';
+        //_toggle.textContent = state.isTracking ? 'Stop' : 'Aloita';
 
         if (state.isTracking) {
             this.root.classList.remove( 'centered' );

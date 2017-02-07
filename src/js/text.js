@@ -71,6 +71,9 @@
             */
             [
                 [
+                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+                ],
+                [
                 'Krokotiili hiihtää kevääseen|h1',
                 'Murisevan metsän pieni krokotiili katsoi ikkunasta.',
                 '– On niin harmaata. Kaikki värit ovat kadonneet.',
@@ -145,6 +148,9 @@
 
             [
                 [
+                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+                ],
+                [
                 'Heinähattu, Vilttitossu ja iso Elsa|h1',
                 'Heinähattu on tunnollinen koululainen.',
                 'Pikkusisko Vilttitossu on aivan toisenlainen.',
@@ -195,6 +201,9 @@
             ],
 
             [
+                [
+                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+                ],
                 [
                 'Muumilaaksossa|h1',
                 'Eräänä harmaana aamuna ensilumi laskeutui Muumilaaksoon.',
@@ -255,6 +264,9 @@
 
             [
                 [
+                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+                ],
+                [
                 'Olympialaiset|h1',
                 'Olympialaiset on kuuluisin kansainvälinen urheilukilpailu.',
                 'Olympialaisiin voi osallistua urheilijoita',
@@ -290,6 +302,9 @@
 
             [
                 [
+                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+                ],
+                [
                 'Suomi on tasavalta|h1',
                 'Suomi on itsenäinen valtio. Se tarkoittaa sitä, että',
                 'Suomi päättää omista asioistaan ja sillä on lippu ja',
@@ -316,6 +331,9 @@
             ],
 
             [
+                [
+                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+                ],
                 [
                 'Suomi ja suomalaisuus|h1',
                 'Suomalaisilla on monta ylpeyden aihetta. Suomessa on puhdas luonto ja',
@@ -344,6 +362,9 @@
 
             [
                 [
+                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+                ],
+                [
                 'Helsinki on Suomen pääkaupunki|h1',
                 'Helsinki sijaitsee Etelä-Suomessa Itämeren rannalla. Helsinki on',
                 'Suomen suurin kaupunki. Siellä on asukkaita yli 600 000.',
@@ -370,6 +391,9 @@
             ],
 
             [
+                [
+                'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+                ],
                 [
                 'Suomen kaupunkeja|h1',
                 'Espoo\\b on Suomen toiseksi suurin kaupunki. Vuonna 2012 siellä asui',
@@ -503,7 +527,8 @@
     }
 
     Text.prototype.getTextTitle = function (text) {
-        return text[0][0].split( '|' )[0];
+        const pageIndex = Math.min( 1, text.length );
+        return text[ pageIndex ][0].split( '|' )[0];
     }
 
     Text.prototype.getCurrentTextIndex = function () {
