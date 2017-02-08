@@ -205,8 +205,8 @@
                 'Se hipsi maahan hiljaa ja tiheänä, ja muutamassa tunnissa',
                 'kaikki oli valkoista.',
                 'Muumipeikko seisoi portailla ja katseli, miten laakso veti',
-                'talvilakanan päälleen. Hän ajatteli itsekseen: tänä iltana',
-                'painumme pehkuihin.'
+                'talvilakanan päälleen. Hän ajatteli itsekseen:',
+                'tänä iltana painumme pehkuihin.'
                 ],
                 [
                 'Niinhän näet kaikkien muumipeikkojen oli tapana tehdä joskus',
@@ -245,8 +245,8 @@
                 '– Tässä menee joka tapauksessa melko paljon aikaa hukkaan.',
                 '– Mitä vielä! sanoi Nuuskamuikkunen. – Mehän näemme unia.',
                 'Ja kun heräämme taas, on kevät…',
-                '– Niin, Muumipeikko mutisi. Hän oli jo liukunut kauas',
-                'unien puolihämärään.',
+                '– Niin, Muumipeikko mutisi. Hän oli jo',
+                'liukunut kauas unien puolihämärään.',
                 ],
                 [
                 'Ulkona satoi lunta hiljaa ja tiheästi. Se peitti jo portaat ja riippui',
