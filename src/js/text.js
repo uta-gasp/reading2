@@ -23,7 +23,7 @@
         _textContainer = document.querySelector( this.root );
 
         this.firstPage = [
-            'Kiitos, että autat meitä! Istu mukavassa asennossa koneen edessä niin, että laite näkee silmäsi. Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+            'Kiitos, että autat meitä! Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
         ];
 
         this.texts = [

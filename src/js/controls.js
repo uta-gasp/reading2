@@ -50,13 +50,14 @@
             GazeTargets.ETUDriver.showOptions();
         });
 
-        const instructions = this.root.querySelector( '.instructions' );
+        _preCalibInstructions = this.root.querySelector( '.instructions.pre-calib' );
+        _postCalibInstructions = this.root.querySelector( '.instructions.post-calib' );
 
         _calibrate = this.root.querySelector( '.calibrate' );
         _calibrate.addEventListener('click', function () {
             GazeTargets.ETUDriver.calibrate();
             setButtonHidden( _calibrate, true );
-            setButtonHidden( instructions, true );
+            setButtonHidden( _preCalibInstructions, true );
         });
 
         _toggle = this.root.querySelector( '.toggle' );
@@ -64,7 +65,8 @@
             setButtonDisabled( _toggle, true );
             setButtonHidden( _calibrate, true );
             GazeTargets.ETUDriver.toggleTracking();
-            setButtonHidden( instructions, true );
+            setButtonHidden( _preCalibInstructions, true );
+            setButtonHidden( _postCalibInstructions, true );
         });
 
         _nextPage = this.root.querySelector( '.nextPage' );
@@ -183,8 +185,10 @@
             _device.textContent = 'Disconnected';
         }
 
+        setButtonHidden( _toggle, !state.isCalibrated || state.isTracking || state.isStopped || state.isBusy);
         setButtonDisabled( _options, !state.isServiceRunning || state.isTracking || state.isBusy);
         setButtonDisabled( _calibrate, !state.isConnected || state.isTracking || state.isBusy);
+        setButtonHidden( _postCalibInstructions, !state.isCalibrated || state.isTracking || state.isStopped || state.isBusy);
         setButtonHidden( _toggle, !state.isCalibrated || state.isTracking || state.isStopped || state.isBusy);
         setButtonDisabled( _toggle, !state.isCalibrated || state.isBusy);
         setButtonHidden( _nextPage, !state.isTracking );
@@ -263,6 +267,8 @@
     var _services;
     var _device;
     var _options;
+    var _preCalibInstructions;
+    var _postCalibInstructions;
     var _calibrate;
     var _toggle;
     var _nextPage;
