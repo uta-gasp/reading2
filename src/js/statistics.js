@@ -187,7 +187,7 @@
         let sum = 0;
         let count = 0;
         page.words.forEach( record => {
-            if (record.duration > 150) {
+            if (record.duration > 200) {
                 sum += record.duration;
                 count++;
             }

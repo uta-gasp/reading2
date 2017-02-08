@@ -17,9 +17,15 @@
     function Syllabifier( options ) {
 
         this.highlightingEnabled = options.highlightingEnabled || false;
-        this.syllabificationEnabled = options.syllabificationEnabled || false;
-        this.syllabificationThreshold = options.syllabificationThreshold || 2500;
-        this.syllabificationSmart = options.syllabificationSmart || true;
+        this.syllabification = {};
+        this.syllabification.enabled = options.syllabificationEnabled || false;
+        this.syllabification.threshold = options.syllabificationThreshold || 2500;
+        this.syllabification.smart = {}
+        this.syllabification.smart.enabled = options.syllabificationSmart || true;
+        this.syllabification.smart.threshold = {}
+        this.syllabification.smart.threshold.min = options.syllabificationSmartThresholdMin || 1500;
+        this.syllabification.smart.threshold.max = options.syllabificationSmartThresholdMax || 3000;
+        this.syllabification.smart.threshold.factor = options.syllabificationSmartThresholdFactor || 4;
         this.speechEnabled = (options.speechEnabled || false) && (typeof responsiveVoice !== 'undefined');
         this.speechThreshold = options.speechThreshold || 4000;
 
@@ -62,8 +68,8 @@
     Syllabifier.prototype.getSetup = function () {
         return {
             syllabification: {
-                enabled: this.syllabificationEnabled,
-                threshold: this.syllabificationThreshold,
+                enabled: this.syllabification.enabled,
+                threshold: this.syllabification.threshold,
                 hyphen: this.hyphen
             },
             speech: {
@@ -88,7 +94,7 @@
 
     Syllabifier.prototype.init = function () {
         this.words = new Map();
-        if (this.syllabificationEnabled || this.speechEnabled) {
+        if (this.syllabification.enabled || this.speechEnabled) {
             this.timer = setInterval( () => {
                 this._tick();
             }, 30);
@@ -96,8 +102,13 @@
     };
 
     Syllabifier.prototype.setAvgWordReadingDuration = function ( avgWordReadingDuration ) {
-        this.syllabificationThreshold = Math.max( 1500, Math.max( 3000,
-            avgWordReadingDuration * 4
+        if (!this.syllabification.smart.enabled) {
+            return;
+        }
+        this.syllabification.threshold =
+            Math.max( this.syllabification.smart.threshold.min,
+            Math.max( this.syllabification.smart.threshold.max,
+            avgWordReadingDuration * this.syllabification.smart.threshold.factor
         ));
     };
 
@@ -109,9 +120,9 @@
                 wordSyllabParams.accumulatedTime + (key === this.currentWord ? 30 : -30)
             );
 
-            if (this.syllabificationEnabled &&
+            if (this.syllabificatione.enabled &&
                 wordSyllabParams.notSyllabified &&
-                wordSyllabParams.accumulatedTime > this.syllabificationThreshold) {
+                wordSyllabParams.accumulatedTime > this.syllabification.threshold) {
 
                 wordSyllabParams.notSyllabified = false;
 
@@ -162,7 +173,7 @@
 
     Syllabifier.prototype.syllabify = function( text ) {
 
-        if (!this.syllabificationEnabled) {
+        if (!this.syllabification.enabled) {
             return text;
         }
 
@@ -174,7 +185,7 @@
 
     Syllabifier.prototype.prepareForSyllabification = function( text ) {
 
-        if (!this.syllabificationEnabled) {
+        if (!this.syllabification.enabled) {
             return text;
         }
 

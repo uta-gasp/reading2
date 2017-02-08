@@ -135,12 +135,28 @@ Reading.init = function (components) {
             (syllabifier.highlightingEnabled = value);
         },
         syllabificationEnabled: function (value) { return value === undefined ?
-            syllabifier.syllabificationEnabled :
-            (syllabifier.syllabificationEnabled = value);
+            syllabifier.syllabification.enabled :
+            (syllabifier.syllabification.enabled = value);
         },
         syllabificationThreshold: function (value) { return value === undefined ?
-            syllabifier.syllabificationThreshold :
-            (syllabifier.syllabificationThreshold = value);
+            syllabifier.syllabification.threshold :
+            (syllabifier.syllabification.threshold = value);
+        },
+        syllabificationSmartThreshold: function (value) { return value === undefined ?
+            syllabifier.syllabification.smart.enabled :
+            (syllabifier.syllabification.smart.enabled = value);
+        },
+        syllabificationSmartThresholdMin: function (value) { return value === undefined ?
+            syllabifier.syllabification.smart.threshold.min :
+            (syllabifier.syllabification.smart.threshold.min = value);
+        },
+        syllabificationSmartThresholdMax: function (value) { return value === undefined ?
+            syllabifier.syllabification.smart.threshold.max :
+            (syllabifier.syllabification.smart.threshold.max = value);
+        },
+        syllabificationSmartThresholdFactor: function (value) { return value === undefined ?
+            syllabifier.syllabification.smart.threshold.factor :
+            (syllabifier.syllabification.smart.threshold.factor = value);
         },
         speechEnabled: function (value) { return value === undefined ?
             syllabifier.speechEnabled :

@@ -382,6 +382,10 @@
         bindCheckbox( 'showPointer', _services.showPointer );
         bindCheckbox( 'syllabificationEnabled', _services.syllabificationEnabled );
         bindValue( 'syllabificationThreshold', _services.syllabificationThreshold );
+        bindCheckbox( 'syllabificationSmartThreshold', _services.syllabificationSmartThreshold );
+        bindValue( 'syllabificationSmartThresholdMin', _services.syllabificationSmartThresholdMin );
+        bindValue( 'syllabificationSmartThresholdMax', _services.syllabificationSmartThresholdMax );
+        bindValue( 'syllabificationSmartThresholdFactor', _services.syllabificationSmartThresholdFactor );
         bindCheckbox( 'speechEnabled', _services.speechEnabled );
         bindValue( 'speechThreshold', _services.speechThreshold );
         bindCheckbox( 'highlightWord', _services.highlightWord );
