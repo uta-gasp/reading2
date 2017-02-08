@@ -99,7 +99,6 @@
         this.syllabificationThreshold = Math.max( 1500, Math.max( 3000,
             avgWordReadingDuration * 4
         ));
-        console.log(this.syllabificationThreshold);
     };
 
     Syllabifier.prototype._tick = function () {
