@@ -93,6 +93,10 @@ Reading.init = function (components) {
         simulate: rtv.queryData.bind( rtv ),
         gazeReplay: gazeReplay.queryData.bind( gazeReplay ),
         nextPage: () => {
+            if (text.getPageIndex() === 0) {
+                const avgWordReadingDuration = statistics.getAvgWordReadingDuration();
+                syllabifier.setAvgWordReadingDuration( avgWordReadingDuration );
+            }
             text.nextPage();
             GazeTargets.updateTargets();
         },
@@ -107,8 +111,8 @@ Reading.init = function (components) {
             statistics.userName :
             (statistics.userName = value );
         },
-        texts: function (value) { return value === undefined ?
-            text.texts :
+        modifiedTexts: function (value) { return value === undefined ?
+            text.getModifiedTexts() :
             text.setTexts( value );
         },
         textID: function (value) { return value === undefined ?
@@ -201,7 +205,8 @@ Reading.init = function (components) {
         }
     }, {    // utils
         editText: textEditor.show.bind( textEditor ),
-        getTextTitle: text.getTextTitle.bind( text )
+        textTitles: text.getTextTitles.bind( text )
+        //getTextTitle: text.getTextTitle.bind( text )
     });
 
     /*var gazeTargetsManager = */new Reading.GazeTargetsManager({
@@ -297,10 +302,14 @@ Reading.loadingCallbacks = [];
             GazeTargets.ETUDriver.showOptions();
         });
 
+        _preCalibInstructions = this.root.querySelector( '.instructions.pre-calib' );
+        _postCalibInstructions = this.root.querySelector( '.instructions.post-calib' );
+
         _calibrate = this.root.querySelector( '.calibrate' );
         _calibrate.addEventListener('click', function () {
             GazeTargets.ETUDriver.calibrate();
             setButtonHidden( _calibrate, true );
+            setButtonHidden( _preCalibInstructions, true );
         });
 
         _toggle = this.root.querySelector( '.toggle' );
@@ -308,6 +317,8 @@ Reading.loadingCallbacks = [];
             setButtonDisabled( _toggle, true );
             setButtonHidden( _calibrate, true );
             GazeTargets.ETUDriver.toggleTracking();
+            setButtonHidden( _preCalibInstructions, true );
+            setButtonHidden( _postCalibInstructions, true );
         });
 
         _nextPage = this.root.querySelector( '.nextPage' );
@@ -317,6 +328,7 @@ Reading.loadingCallbacks = [];
                 this._updateNextPageButton();
             }
             else {
+                setButtonDisabled( _nextPage, true );
                 GazeTargets.ETUDriver.toggleTracking();
             }
         });
@@ -425,15 +437,17 @@ Reading.loadingCallbacks = [];
             _device.textContent = 'Disconnected';
         }
 
+        setButtonHidden( _toggle, !state.isCalibrated || state.isTracking || state.isStopped || state.isBusy);
         setButtonDisabled( _options, !state.isServiceRunning || state.isTracking || state.isBusy);
         setButtonDisabled( _calibrate, !state.isConnected || state.isTracking || state.isBusy);
+        setButtonHidden( _postCalibInstructions, !state.isCalibrated || state.isTracking || state.isStopped || state.isBusy);
         setButtonHidden( _toggle, !state.isCalibrated || state.isTracking || state.isStopped || state.isBusy);
         setButtonDisabled( _toggle, !state.isCalibrated || state.isBusy);
         setButtonHidden( _nextPage, !state.isTracking );
         setButtonDisabled( _nextPage, !state.isTracking );
         setButtonHidden( _thanks, !state.isStopped );
 
-        _toggle.textContent = state.isTracking ? 'Stop' : 'Aloita';
+        //_toggle.textContent = state.isTracking ? 'Stop' : 'Aloita';
 
         if (state.isTracking) {
             this.root.classList.remove( 'centered' );
@@ -505,6 +519,8 @@ Reading.loadingCallbacks = [];
     var _services;
     var _device;
     var _options;
+    var _preCalibInstructions;
+    var _postCalibInstructions;
     var _calibrate;
     var _toggle;
     var _nextPage;
@@ -2616,7 +2632,7 @@ if (!this.Reading) {
         _services = services;
 
         _services.userName = _services.userName || logError( 'userName' );
-        _services.texts = _services.texts || logError( 'texts' );
+        _services.modifiedTexts = _services.modifiedTexts || logError( 'modifiedTexts' );
         _services.textID = _services.textID || logError( 'textID' );
         _services.hideText = _services.hideText || logError( 'hideText' );
         _services.textAlign = _services.textAlign || logError( 'textAlign' );
@@ -2665,10 +2681,10 @@ if (!this.Reading) {
         document.body.appendChild( this._style );
 
         const texts = this._slideout.querySelector( '#textID' );
-        _services.texts().forEach( (text, id) => {
+        _utils.textTitles().forEach( (title, id) => {
             let option = document.createElement( 'option' );
             option.value = id;
-            option.textContent = _utils.getTextTitle( text );
+            option.textContent = title;
             texts.appendChild( option );
         });
 
@@ -4743,6 +4759,28 @@ if (!this.Reading) {
         }
     };
 
+    Statistics.prototype.getAvgWordReadingDuration = function () {
+        const page = this._getPage( 0 );
+        if (!page) {
+            return 500;
+        }
+
+        let sum = 0;
+        let count = 0;
+        page.words.forEach( record => {
+            if (record.duration > 150) {
+                sum += record.duration;
+                count++;
+            }
+        });
+
+        if (!count) {
+            return 500;
+        }
+
+        return sum / count;
+    };
+
     // private
     Statistics.prototype._getPage =  function ( pageID ) {
         var page = _pages[ pageID ];
@@ -5025,17 +5063,19 @@ if (!this.Reading) {
     //      options: {
     //          highlightingEnabled
     //          syllabificationEnabled
-    //          speechEnabled
     //          syllabificationThreshold - minimum fixation duration in ms to consider the word should be split
+    //          syllabificationSmart     - if enabled, computeds the threshold after the first page is read
+    //          speechEnabled
     //          speechThreshold - minimum fixation duration in ms to consider the word should be pronounced
     //      }
     function Syllabifier( options ) {
 
         this.highlightingEnabled = options.highlightingEnabled || false;
         this.syllabificationEnabled = options.syllabificationEnabled || false;
-        this.syllabificationThreshold = options.syllabificationThreshold || 3000;
+        this.syllabificationThreshold = options.syllabificationThreshold || 2500;
+        this.syllabificationSmart = options.syllabificationSmart || true;
         this.speechEnabled = (options.speechEnabled || false) && (typeof responsiveVoice !== 'undefined');
-        this.speechThreshold = options.speechThreshold || 5000;
+        this.speechThreshold = options.speechThreshold || 4000;
 
         this.events = new EventEmitter();
 
@@ -5107,6 +5147,13 @@ if (!this.Reading) {
                 this._tick();
             }, 30);
         }
+    };
+
+    Syllabifier.prototype.setAvgWordReadingDuration = function ( avgWordReadingDuration ) {
+        this.syllabificationThreshold = Math.max( 1500, Math.max( 3000,
+            avgWordReadingDuration * 4
+        ));
+        console.log(this.syllabificationThreshold);
     };
 
     Syllabifier.prototype._tick = function () {
@@ -5339,6 +5386,10 @@ if (!this.Reading) {
         _services.splitText = _services.splitText || logError( 'splitText' );
 
         _textContainer = document.querySelector( this.root );
+
+        this.firstPage = [
+            'Kiitos, että autat meitä! Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+        ];
 
         this.texts = [
             /*[
@@ -5757,6 +5808,10 @@ if (!this.Reading) {
 
         this.switchText( _textIndex );
         this.switchSpacing( _spacingIndex );
+
+        this.texts.forEach( text => {
+            text.unshift( this.firstPage );
+        })
     }
 
     Text.prototype.reset = function () {
@@ -5814,24 +5869,6 @@ if (!this.Reading) {
         _textContainer.classList.add( this.spacings[ _spacingIndex ] );
     };
 
-    Text.prototype.getTextTitles = function () {
-        return this.texts.map( text => {
-            return this.getTextTitle( text );
-        });
-    }
-
-    Text.prototype.getTextTitle = function (text) {
-        return text[0][0].split( '|' )[0];
-    }
-
-    Text.prototype.getCurrentTextIndex = function () {
-        return _textIndex;
-    };
-
-    Text.prototype.getCurrentSpacingIndex = function () {
-        return _spacingIndex;
-    };
-
     Text.prototype.show = function() {
         _textContainer.classList.remove( 'invisible' );
     };
@@ -5855,17 +5892,39 @@ if (!this.Reading) {
         };
     };
 
+    Text.prototype.getCurrentTextIndex = function () {
+        return _textIndex;
+    };
+
+    Text.prototype.getCurrentSpacingIndex = function () {
+        return _spacingIndex;
+    };
+
+    Text.prototype.getTextTitles = function () {
+        return this.texts.map( text => {
+            return this.getTextTitle( text );
+        });
+    }
+
+    Text.prototype.getTextTitle = function (text) {
+        const pageIndex = Math.min( 1, text.length );
+        return text[ pageIndex ][0].split( '|' )[0];
+    }
+
     Text.prototype.getText = function () {
         var result = [];
-        this.texts[ _textIndex ].forEach( page => {
-            result.push( page.join( '\n' ) );
+        this.texts[ _textIndex ].forEach( (page, index) => {
+            if (index > 0) {
+                result.push( page.join( '\n' ) );
+            }
         });
         return result.join( '\n\n' );
     };
 
     Text.prototype.setText = function (text) {
         var textRef = this.texts[ _textIndex ];
-        textRef.length = 0;
+        textRef.length = 1;
+        textRef.isModified = true;
 
         var pages = text.split( '\n\n' );
         pages.forEach( page => {
@@ -5875,8 +5934,24 @@ if (!this.Reading) {
         this.switchText( _textIndex );
     };
 
+    Text.prototype.getModifiedTexts = function () {
+        return this.texts.map( text => {
+            return text.isModified ? text.slice(1) : [];
+        });
+    }
+
     Text.prototype.setTexts = function (texts) {
-        this.texts = texts;
+        //this.texts = texts;
+        texts.forEach( (text, index) => {
+            if (!text.length) {
+                return;
+            }
+
+            text.unshift( this.firstPage );
+            text.isModified = true;
+            this.texts[ index ] = text;
+        })
+
         this.switchText( _textIndex );
     };
 

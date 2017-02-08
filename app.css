@@ -95,6 +95,21 @@
   text-align: center;
   font-size: 2em;
 }
+#controls .button.low {
+  line-height: 2;
+}
+#controls .instructions {
+  margin-left: -55%;
+  margin-right: -55%;
+  margin-bottom: 2em;
+  font-size: 1.5em;
+  line-height: 1.5;
+  color: black;
+  text-align: center;
+}
+#controls .instructions .highlight {
+  color: blue;
+}
 
 body {
   margin: 0;
