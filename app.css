@@ -188,6 +188,9 @@ body {
   font-weight: bold;
   margin-bottom: 0.9em;
 }
+#options .group.inner {
+  padding-left: 2em;
+}
 #options .group .name {
   color: #ffd;
   background: #629ab6;
