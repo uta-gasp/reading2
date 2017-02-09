@@ -4788,7 +4788,7 @@ if (!this.Reading) {
         let sum = 0;
         let count = 0;
         page.words.forEach( record => {
-            if (record.duration > 200) {
+            if (record.duration > 200 && record.duration < 2000) {
                 sum += record.duration;
                 count++;
             }
@@ -4869,6 +4869,7 @@ if (!this.Reading) {
         const sessionKey = userSessions.push({
             date: date,
             text: textHash,
+            textTitle: textSetup.title,
             lineSize: textSetup.lineSize,
             font: textSetup.font,
             interaction: _services.getInteractionSetup()
@@ -5912,6 +5913,7 @@ if (!this.Reading) {
         const textStyle = window.getComputedStyle( _textContainer );
         return {
             text: this.getText(),
+            title: this.getTextTitle(),
             textID: _textIndex,
             lineSize: _spacingIndex,
             font: {
@@ -5938,8 +5940,9 @@ if (!this.Reading) {
     }
 
     Text.prototype.getTextTitle = function (text) {
-        const pageIndex = Math.min( 1, text.length );
-        return text[ pageIndex ][0].split( '|' )[0];
+        const currentText = text || this.texts[ _textIndex ];
+        const pageIndex = Math.min( 1, currentText.length );
+        return currentText[ pageIndex ][0].split( '|' )[0];
     }
 
     Text.prototype.getText = function () {
