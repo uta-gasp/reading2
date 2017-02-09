@@ -187,7 +187,7 @@
         let sum = 0;
         let count = 0;
         page.words.forEach( record => {
-            if (record.duration > 200) {
+            if (record.duration > 200 && record.duration < 2000) {
                 sum += record.duration;
                 count++;
             }
@@ -268,6 +268,7 @@
         const sessionKey = userSessions.push({
             date: date,
             text: textHash,
+            textTitle: textSetup.title,
             lineSize: textSetup.lineSize,
             font: textSetup.font,
             interaction: _services.getInteractionSetup()

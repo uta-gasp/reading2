@@ -516,6 +516,7 @@
         const textStyle = window.getComputedStyle( _textContainer );
         return {
             text: this.getText(),
+            title: this.getTextTitle(),
             textID: _textIndex,
             lineSize: _spacingIndex,
             font: {
@@ -542,8 +543,9 @@
     }
 
     Text.prototype.getTextTitle = function (text) {
-        const pageIndex = Math.min( 1, text.length );
-        return text[ pageIndex ][0].split( '|' )[0];
+        const currentText = text || this.texts[ _textIndex ];
+        const pageIndex = Math.min( 1, currentText.length );
+        return currentText[ pageIndex ][0].split( '|' )[0];
     }
 
     Text.prototype.getText = function () {
