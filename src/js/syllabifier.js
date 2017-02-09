@@ -120,7 +120,7 @@
                 wordSyllabParams.accumulatedTime + (key === this.currentWord ? 30 : -30)
             );
 
-            if (this.syllabificatione.enabled &&
+            if (this.syllabification.enabled &&
                 wordSyllabParams.notSyllabified &&
                 wordSyllabParams.accumulatedTime > this.syllabification.threshold) {
 
