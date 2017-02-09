@@ -121,6 +121,7 @@
             Math.min( this.syllabification.smart.threshold.max,
             avgWordReadingDuration * this.syllabification.smart.threshold.factor
         ));
+        console.dir(this.syllabification);
     };
 
     Syllabifier.prototype._tick = function () {

@@ -5184,6 +5184,7 @@ if (!this.Reading) {
             Math.max( this.syllabification.smart.threshold.max,
             avgWordReadingDuration * this.syllabification.smart.threshold.factor
         ));
+        console.dir(this.syllabification);
     };
 
     Syllabifier.prototype._tick = function () {
@@ -5194,7 +5195,7 @@ if (!this.Reading) {
                 wordSyllabParams.accumulatedTime + (key === this.currentWord ? 30 : -30)
             );
 
-            if (this.syllabificatione.enabled &&
+            if (this.syllabification.enabled &&
                 wordSyllabParams.notSyllabified &&
                 wordSyllabParams.accumulatedTime > this.syllabification.threshold) {
 
