@@ -5182,7 +5182,7 @@ if (!this.Reading) {
         }
         this.syllabification.threshold =
             Math.max( this.syllabification.smart.threshold.min,
-            Math.max( this.syllabification.smart.threshold.max,
+            Math.min( this.syllabification.smart.threshold.max,
             avgWordReadingDuration * this.syllabification.smart.threshold.factor
         ));
         console.dir(this.syllabification);
