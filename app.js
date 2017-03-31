@@ -5136,7 +5136,18 @@ if (!this.Reading) {
             'kattokruunuun': 'kat'+h+'to'+h+'kruu'+h+'nuun',
             'unien': 'u'+h+'ni'+h+'en',
             'ikkunanpielien': 'ik'+h+'ku'+h+'nan'+h+'pie'+h+'li'+h+'en',
-            'pohjois-suomessa': 'poh'+h+'jois-suo'+h+'mes'+h+'sa',
+            'pohjoissuomessa': 'poh'+h+'jois'+h+'suo'+h+'mes'+h+'sa',
+            'kielenopetukseen': 'kie'+h+'len'+h+'o'+h+'pe'+h+'tuk'+h+'seen',
+            'erikoisluokkien': 'e'+h+'ri'+h+'kois'+h+'luok'+h+'ki'+h+'en',
+            'opinahjoiksi': 'o'+h+'pin'+h+'ah'+h+'joik'+h+'si',
+            'diskriminaation': 'dis'+h+'kri'+h+'mi'+h+'naa'+h+'ti'+h+'on',
+            'Oppimateriaalien': 'Op'+h+'pi'+h+'ma'+h+'te'+h+'ri'+h+'aa'+h+'li'+h+'en',
+            'avoimien': 'a'+h+'voi'+h+'mi'+h+'en',
+            'lisenssien': 'li'+h+'sens'+h+'si'+h+'en',
+            'veronmaksajien': 've'+h+'ron'+h+'mak'+h+'sa'+h+'ji'+h+'en',
+            'opettajien': 'o'+h+'pet'+h+'ta'+h+'ji'+h+'en',
+            'maailma': 'maa'+h+'il'+h+'ma',
+            'hapanimelästä': 'ha'+h+'pan'+h+'i'+h+'me'+h+'läs'+h+'tä',
         };
     }
 
@@ -5420,8 +5431,8 @@ if (!this.Reading) {
         _textContainer = document.querySelector( this.root );
 
         this.firstPage = [
-            //'Kiitos, että autat meitä! Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
-            'Tämä on aloitussivu. Lue sen teksti kokonaan alusta loppuun normaalilla lukunopeudellasi. Sivun avulla keräämme tietoa siitä, miten kauan katseesi viipyy sanoissa. Kerätyn tiedon perusteella saamme algoritmille parametrin, joka määrää, miten nopeasti sanat jatkossa tavuttuvat niitä lukiessasi.'
+            //'Kiitos, etta autat meita! Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, silla tama ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirella ”Jatka”, niin paaset seuraavalle sivulle.'
+            'Tama on aloitussivu. Lue sen teksti kokonaan alusta loppuun normaalilla lukunopeudellasi. Sivun avulla keraamme tietoa siita, miten kauan katseesi viipyy sanoissa. Keratyn tiedon perusteella saamme algoritmille parametrin, joka maaraa, miten nopeasti sanat jatkossa tavuttuvat niita lukiessasi.'
         ];
 
         this.texts = [
@@ -5836,29 +5847,29 @@ if (!this.Reading) {
             [
                 [
                 'Koulutuspolitiikkaa|h1',
-                'Kieltä osaamattomat maahanmuuttajalapset on ensin laitettava erilliseen kielenopetukseen ennen normaaleihin opetusryhmiin sijoittamista. Kunnissa, joissa maahanmuuttajaväestö on päässyt keskittymään tietyille alueille, maahanmuuttajataustaisia oppilaita tulisi pyrkiä hajauttamaan eri kouluihin. Maahanmuuttajaoppilaiden keskittyminen vain tiettyihin kouluihin heikentää heidän sopeutumistaan suomalaiseen yhteiskuntaan.'
+                'Kielta osaamattomat maahanmuuttajalapset on ensin laitettava erilliseen kielenopetukseen ennen normaaleihin opetusryhmiin sijoittamista. Kunnissa, joissa maahanmuuttajavaesto on paassyt keskittymaan tietyille alueille, maahanmuuttajataustaisia oppilaita tulisi pyrkia hajauttamaan eri kouluihin. Maahanmuuttajaoppilaiden keskittyminen vain tiettyihin kouluihin heikentaa heidan sopeutumistaan suomalaiseen yhteiskuntaan.'
                 ],
                 [
-                'Lahjakkaiden oppilaiden erikoisluokkien lisääntyminen ei saa johtaa yhtenäiskoulun hajoamiseen ja lohkoutumiseen paremman väen ja huonomman väen opinahjoiksi. Resurssit on jaettava tasapuolisesti niin, ettei erikoisluokkia suosiota. Sen sijaan ns. positiivisen diskriminaation mukaisesti lisäpanostukset kohdistetaan vaikeuksissa olevien oppilaiden opetukseen ja pienryhmäopetukseen.'
+                'Lahjakkaiden oppilaiden erikoisluokkien lisaantyminen ei saa johtaa yhtenaiskoulun hajoamiseen ja lohkoutumiseen paremman vaen ja huonomman vaen opinahjoiksi. Resurssit on jaettava tasapuolisesti niin, ettei erikoisluokkia suosita. Sen sijaan ns. positiivisen diskriminaation mukaisesti lisapanostukset kohdistetaan vaikeuksissa olevien oppilaiden opetukseen ja pienryhmaopetukseen.'
                 ],
                 [
-                'Oppimateriaalien hankintalogiikkaa on kehitettävä avoimien lisenssien suuntaan. Mikäli oppimateriaalit ostettaisiin ja tuotettaisiin avoimesti lisensoituna, ne olisivat opettajien muokattavissa ja kaikkien veronmaksajien saatavilla. Esimerkiksi varaamalla opettajien työaikaa oppimateriaalityöhön voidaan hyvinkin nopeasti saada laadukkaita, vapaasti käytettäviä oppimateriaaleja laajaan käyttöön.'
+                'Oppimateriaalien hankintalogiikkaa on kehitettava avoimien lisenssien suuntaan. Mikali oppimateriaalit ostettaisiin ja tuotettaisiin avoimesti lisensoituna, ne olisivat opettajien muokattavissa ja kaikkien veronmaksajien saatavilla. Esimerkiksi varaamalla opettajien tyoaikaa oppimateriaalityohon voidaan hyvinkin nopeasti saada laadukkaita, vapaasti kaytettavia oppimateriaaleja laajaan kayttoon.'
                 ]
             ],
             [
                 [
-                'Mielensäpahoittaja|h1',
-                'Kyllä minä niin mieleni pahoitin, kun halutaan että Sysi-Suomessa tehdään tuorepastaa.',
-                'Kysyin kirjastovirkailijalta mistä minä löydän järkevän ruokakirjan, jossa suositellaan sellaisten elikoiden lihoja, jotka jaksavat kävellä itse laitumeltaan teurastamon kautta minun pataani. Jossa käytetään oman sadon perunoita ja jossa ruokajuomaksi suositellaan piimää eikä punaviiniä.'
+                'Mielensapahoittaja|h1',
+                'Kylla mina niin mieleni pahoitin, kun halutaan etta Sysi-Suomessa tehdaan tuorepastaa.',
+                'Kysyin kirjastovirkailijalta mista mina loydan jarkevan ruokakirjan, jossa suositellaan sellaisten elikoiden lihoja, jotka jaksavat kavella itse laitumeltaan teurastamon kautta minun pataani. Jossa kaytetaan oman sadon perunoita ja jossa ruokajuomaksi suositellaan piimaa eika punaviinia.'
                 ],
                 [
-                'Kirjastovirkailija tutki tietokonettaan, mutisi ja heilutti päätään. Sitten hän kävi katsomassa poistokirjat, muttei löytänyt määreitäni vastaavaa kirjaa. Oli olemassa Helppoa kotiruokaa -niminen teos, mutta se oli joko kadonnut tai varastettu. Vaikka mitä jauhelihasta -kirja oli repeytynyt ja hävitetty. Enemmän nykyisin lainataan etnistä, hän sanoi ja vei minut kädestä pitäen ruokakirjahyllylle.'
+                'Kirjastovirkailija tutki tietokonettaan, mutisi ja heilutti paataan. Sitten han kavi katsomassa poistokirjat, muttei loytanyt maareitani vastaavaa kirjaa. Oli olemassa Helppoa kotiruokaa -niminen teos, mutta se oli joko kadonnut tai varastettu. Vaikka mita jauhelihasta -kirja oli repeytynyt ja havitetty. Enemman nykyisin lainataan etnista, han sanoi ja vei minut kadesta pitaen ruokakirjahyllylle.'
                 ],
                 [
-                'Oli Italialainen keittiö, Pankleesialaisia makuja ja Kasvissyöjän maailma. Varmasti tarpeellisia Intiassa, Pankalesissa ja suuren kaupungin itukerhossa, mutta kyllä en aloita ruokaopiskeluitani simpukka-valkoviinikastikkeesta. Myöskään en aloita sitä hapanimelästä katkarapumuhennoksesta. Ja haluan kertoa keittokirjan tekijöille, että minun pihassani kasvaa koivu, ei kookospalmu.'
+                'Oli Italialainen keittio, Pankleesialaisia makuja ja Kasvissyojan maailma. Varmasti tarpeellisia Intiassa, Pankalesissa ja suuren kaupungin itukerhossa, mutta kylla en aloita ruokaopiskeluitani simpukka-valkoviinikastikkeesta. Myoskaan en aloita sita hapanimelasta katkarapumuhennoksesta. Ja haluan kertoa keittokirjan tekijoille, etta minun pihassani kasvaa koivu, ei kookospalmu.'
                 ],
                 [
-                'Entä luuleeko kasvikeittokirjan tekijä, että minä teen lihajäljitelmiä soijasta ja linsseistä? Jos haluaisin syödä kasviksia, söisin perunaa ja punajuurta niin kuin lapsena oli pakko. Nauriilla minun esi-isäni pysyivät hengissä. Mutta tietenkin minä syön vähintään kolme kertaa viikossa lihaa, jos sitä vain löytyy.'
+                'Enta luuleeko kasvikeittokirjan tekija, etta mina teen lihajaljitelmia soijasta ja linsseista? Jos haluaisin syoda kasviksia, soisin perunaa ja punajuurta niin kuin lapsena oli pakko. Nauriilla minun esi-isani pysyivat hengissa. Mutta tietenkin mina syon vahintaan kolme kertaa viikossa lihaa, jos sita vain loytyy.'
                 ]
             ]
         ];
