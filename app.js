@@ -5844,17 +5844,11 @@ if (!this.Reading) {
                 ],
             ],
 
+            // ITK 2017
             [
-                [
-                'Koulutuspolitiikkaa|h1',
-                'Kielta osaamattomat maahanmuuttajalapset on ensin laitettava erilliseen kielenopetukseen ennen normaaleihin opetusryhmiin sijoittamista. Kunnissa, joissa maahanmuuttajavaesto on paassyt keskittymaan tietyille alueille, maahanmuuttajataustaisia oppilaita tulisi pyrkia hajauttamaan eri kouluihin. Maahanmuuttajaoppilaiden keskittyminen vain tiettyihin kouluihin heikentaa heidan sopeutumistaan suomalaiseen yhteiskuntaan.'
-                ],
-                [
-                'Lahjakkaiden oppilaiden erikoisluokkien lisaantyminen ei saa johtaa yhtenaiskoulun hajoamiseen ja lohkoutumiseen paremman vaen ja huonomman vaen opinahjoiksi. Resurssit on jaettava tasapuolisesti niin, ettei erikoisluokkia suosita. Sen sijaan ns. positiivisen diskriminaation mukaisesti lisapanostukset kohdistetaan vaikeuksissa olevien oppilaiden opetukseen ja pienryhmaopetukseen.'
-                ],
-                [
-                'Oppimateriaalien hankintalogiikkaa on kehitettava avoimien lisenssien suuntaan. Mikali oppimateriaalit ostettaisiin ja tuotettaisiin avoimesti lisensoituna, ne olisivat opettajien muokattavissa ja kaikkien veronmaksajien saatavilla. Esimerkiksi varaamalla opettajien tyoaikaa oppimateriaalityohon voidaan hyvinkin nopeasti saada laadukkaita, vapaasti kaytettavia oppimateriaaleja laajaan kayttoon.'
-                ]
+                [ 'Koulutuspolitiikkaa|h1', 'Kielta osaamattomat maahanmuuttajalapset on ensin laitettava erilliseen kielenopetukseen ennen normaaleihin opetusryhmiin sijoittamista. Kunnissa, joissa maahanmuuttajavaesto on paassyt keskittymaan tietyille alueille, maahanmuuttajataustaisia oppilaita tulisi pyrkia hajauttamaan eri kouluihin. Maahanmuuttajaoppilaiden keskittyminen vain tiettyihin kouluihin heikentaa heidan sopeutumistaan suomalaiseen yhteiskuntaan.' ],
+                [ 'Lahjakkaiden oppilaiden erikoisluokkien lisaantyminen ei saa johtaa yhtenaiskoulun hajoamiseen ja lohkoutumiseen paremman vaen ja huonomman vaen opinahjoiksi. Resurssit on jaettava tasapuolisesti niin, ettei erikoisluokkia suosita. Sen sijaan ns. positiivisen diskriminaation mukaisesti lisapanostukset kohdistetaan vaikeuksissa olevien oppilaiden opetukseen ja pienryhmaopetukseen.' ],
+                [ 'Oppimateriaalien hankintalogiikkaa on kehitettava avoimien lisenssien suuntaan. Mikali oppimateriaalit ostettaisiin ja tuotettaisiin avoimesti lisensoituna, ne olisivat opettajien muokattavissa ja kaikkien veronmaksajien saatavilla. Esimerkiksi varaamalla opettajien tyoaikaa oppimateriaalityohon voidaan hyvinkin nopeasti saada laadukkaita, vapaasti kaytettavia oppimateriaaleja laajaan kayttoon.' ]
             ],
             [
                 [
@@ -5862,15 +5856,16 @@ if (!this.Reading) {
                 'Kylla mina niin mieleni pahoitin, kun halutaan etta Sysi-Suomessa tehdaan tuorepastaa.',
                 'Kysyin kirjastovirkailijalta mista mina loydan jarkevan ruokakirjan, jossa suositellaan sellaisten elikoiden lihoja, jotka jaksavat kavella itse laitumeltaan teurastamon kautta minun pataani. Jossa kaytetaan oman sadon perunoita ja jossa ruokajuomaksi suositellaan piimaa eika punaviinia.'
                 ],
-                [
-                'Kirjastovirkailija tutki tietokonettaan, mutisi ja heilutti paataan. Sitten han kavi katsomassa poistokirjat, muttei loytanyt maareitani vastaavaa kirjaa. Oli olemassa Helppoa kotiruokaa -niminen teos, mutta se oli joko kadonnut tai varastettu. Vaikka mita jauhelihasta -kirja oli repeytynyt ja havitetty. Enemman nykyisin lainataan etnista, han sanoi ja vei minut kadesta pitaen ruokakirjahyllylle.'
-                ],
-                [
-                'Oli Italialainen keittio, Pankleesialaisia makuja ja Kasvissyojan maailma. Varmasti tarpeellisia Intiassa, Pankalesissa ja suuren kaupungin itukerhossa, mutta kylla en aloita ruokaopiskeluitani simpukka-valkoviinikastikkeesta. Myoskaan en aloita sita hapanimelasta katkarapumuhennoksesta. Ja haluan kertoa keittokirjan tekijoille, etta minun pihassani kasvaa koivu, ei kookospalmu.'
-                ],
-                [
-                'Enta luuleeko kasvikeittokirjan tekija, etta mina teen lihajaljitelmia soijasta ja linsseista? Jos haluaisin syoda kasviksia, soisin perunaa ja punajuurta niin kuin lapsena oli pakko. Nauriilla minun esi-isani pysyivat hengissa. Mutta tietenkin mina syon vahintaan kolme kertaa viikossa lihaa, jos sita vain loytyy.'
-                ]
+                [ 'Kirjastovirkailija tutki tietokonettaan, mutisi ja heilutti paataan. Sitten han kavi katsomassa poistokirjat, muttei loytanyt maareitani vastaavaa kirjaa. Oli olemassa Helppoa kotiruokaa -niminen teos, mutta se oli joko kadonnut tai varastettu. Vaikka mita jauhelihasta -kirja oli repeytynyt ja havitetty. Enemman nykyisin lainataan etnista, han sanoi ja vei minut kadesta pitaen ruokakirjahyllylle.' ],
+                [ 'Oli Italialainen keittio, Pankleesialaisia makuja ja Kasvissyojan maailma. Varmasti tarpeellisia Intiassa, Pankalesissa ja suuren kaupungin itukerhossa, mutta kylla en aloita ruokaopiskeluitani simpukka-valkoviinikastikkeesta. Myoskaan en aloita sita hapanimelasta katkarapumuhennoksesta. Ja haluan kertoa keittokirjan tekijoille, etta minun pihassani kasvaa koivu, ei kookospalmu.' ],
+                [ 'Enta luuleeko kasvikeittokirjan tekija, etta mina teen lihajaljitelmia soijasta ja linsseista? Jos haluaisin syoda kasviksia, soisin perunaa ja punajuurta niin kuin lapsena oli pakko. Nauriilla minun esi-isani pysyivat hengissa. Mutta tietenkin mina syon vahintaan kolme kertaa viikossa lihaa, jos sita vain loytyy.' ]
+            ],
+            [
+                [ 'Difficult English|h1', 'If you had your choice, would you rather sit in an office all day to make a living or work from the comfort of your own home? Nowadays, more and more businesses are allowing employees to work at least part of the week from home. The idea of “telecommuting” isn’t that new and for many it’s been technically possible since the Internet became widely accessible.' ],
+                [ 'Some employers, however, have been less willing to allow the practice for fear that employees who were not being watched would become lazy and undisciplined. Actually, recent evidence has shown that these fears are mostly unwarranted and that businesses can actually save a lot of money on rent by converting more of their staff over to telecommuters.' ],
+                [ 'In a normal telecommuting situation, a worker will be given assignments and asked to complete them or report on them, as in any other office job. The major difference is that most communication is done using the telephone, email and instant messaging. Some employers allow workers to choose which hours they will work, others require them to be online during a normal work day. Either way, most telecommuters have the freedom to work from home or wherever else they would like.' ],
+                [ 'Yet telecommuters often find that their freedom comes with a cost. Those who work outside the office may discover that their employers are more willing to ask them to work long or strange hours. In situations where there are other family members at home, it can be difficult to keep work life and home life separate. Other chores around the house can also serve as distractions, and there’s the matter of getting office supplies like printers and desks.' ],
+                [ 'Working at a coffee shop or a library may be a solution, but some locations put time limits on Internet use. Sometimes employees actually take a room in their house and convert it over to a home office — this can be quite helpful in creating an ideal working environment and provides the added benefit of a few dollars back in the bank when tax time comes around.' ]
             ]
         ];
 
