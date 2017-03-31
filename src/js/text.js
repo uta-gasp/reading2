@@ -23,7 +23,8 @@
         _textContainer = document.querySelector( this.root );
 
         this.firstPage = [
-            'Kiitos, että autat meitä! Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+            //'Kiitos, etta autat meita! Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, silla tama ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirella ”Jatka”, niin paaset seuraavalle sivulle.'
+            'Tama on aloitussivu. Lue sen teksti kokonaan alusta loppuun normaalilla lukunopeudellasi. Sivun avulla keraamme tietoa siita, miten kauan katseesi viipyy sanoissa. Keratyn tiedon perusteella saamme algoritmille parametrin, joka maaraa, miten nopeasti sanat jatkossa tavuttuvat niita lukiessasi.'
         ];
 
         this.texts = [
@@ -433,6 +434,35 @@
                 'Rovaniemi sijaitsee aivan napapiirin lähellä.',
                 'Joulupukin pajakylä sijaitsee Rovaniemellä.',
                 ],
+            ],
+
+            [
+                [
+                'Koulutuspolitiikkaa|h1',
+                'Kielta osaamattomat maahanmuuttajalapset on ensin laitettava erilliseen kielenopetukseen ennen normaaleihin opetusryhmiin sijoittamista. Kunnissa, joissa maahanmuuttajavaesto on paassyt keskittymaan tietyille alueille, maahanmuuttajataustaisia oppilaita tulisi pyrkia hajauttamaan eri kouluihin. Maahanmuuttajaoppilaiden keskittyminen vain tiettyihin kouluihin heikentaa heidan sopeutumistaan suomalaiseen yhteiskuntaan.'
+                ],
+                [
+                'Lahjakkaiden oppilaiden erikoisluokkien lisaantyminen ei saa johtaa yhtenaiskoulun hajoamiseen ja lohkoutumiseen paremman vaen ja huonomman vaen opinahjoiksi. Resurssit on jaettava tasapuolisesti niin, ettei erikoisluokkia suosita. Sen sijaan ns. positiivisen diskriminaation mukaisesti lisapanostukset kohdistetaan vaikeuksissa olevien oppilaiden opetukseen ja pienryhmaopetukseen.'
+                ],
+                [
+                'Oppimateriaalien hankintalogiikkaa on kehitettava avoimien lisenssien suuntaan. Mikali oppimateriaalit ostettaisiin ja tuotettaisiin avoimesti lisensoituna, ne olisivat opettajien muokattavissa ja kaikkien veronmaksajien saatavilla. Esimerkiksi varaamalla opettajien tyoaikaa oppimateriaalityohon voidaan hyvinkin nopeasti saada laadukkaita, vapaasti kaytettavia oppimateriaaleja laajaan kayttoon.'
+                ]
+            ],
+            [
+                [
+                'Mielensapahoittaja|h1',
+                'Kylla mina niin mieleni pahoitin, kun halutaan etta Sysi-Suomessa tehdaan tuorepastaa.',
+                'Kysyin kirjastovirkailijalta mista mina loydan jarkevan ruokakirjan, jossa suositellaan sellaisten elikoiden lihoja, jotka jaksavat kavella itse laitumeltaan teurastamon kautta minun pataani. Jossa kaytetaan oman sadon perunoita ja jossa ruokajuomaksi suositellaan piimaa eika punaviinia.'
+                ],
+                [
+                'Kirjastovirkailija tutki tietokonettaan, mutisi ja heilutti paataan. Sitten han kavi katsomassa poistokirjat, muttei loytanyt maareitani vastaavaa kirjaa. Oli olemassa Helppoa kotiruokaa -niminen teos, mutta se oli joko kadonnut tai varastettu. Vaikka mita jauhelihasta -kirja oli repeytynyt ja havitetty. Enemman nykyisin lainataan etnista, han sanoi ja vei minut kadesta pitaen ruokakirjahyllylle.'
+                ],
+                [
+                'Oli Italialainen keittio, Pankleesialaisia makuja ja Kasvissyojan maailma. Varmasti tarpeellisia Intiassa, Pankalesissa ja suuren kaupungin itukerhossa, mutta kylla en aloita ruokaopiskeluitani simpukka-valkoviinikastikkeesta. Myoskaan en aloita sita hapanimelasta katkarapumuhennoksesta. Ja haluan kertoa keittokirjan tekijoille, etta minun pihassani kasvaa koivu, ei kookospalmu.'
+                ],
+                [
+                'Enta luuleeko kasvikeittokirjan tekija, etta mina teen lihajaljitelmia soijasta ja linsseista? Jos haluaisin syoda kasviksia, soisin perunaa ja punajuurta niin kuin lapsena oli pakko. Nauriilla minun esi-isani pysyivat hengissa. Mutta tietenkin mina syon vahintaan kolme kertaa viikossa lihaa, jos sita vain loytyy.'
+                ]
             ]
         ];
 

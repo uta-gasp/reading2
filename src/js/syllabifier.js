@@ -61,7 +61,18 @@
             'kattokruunuun': 'kat'+h+'to'+h+'kruu'+h+'nuun',
             'unien': 'u'+h+'ni'+h+'en',
             'ikkunanpielien': 'ik'+h+'ku'+h+'nan'+h+'pie'+h+'li'+h+'en',
-            'pohjois-suomessa': 'poh'+h+'jois-suo'+h+'mes'+h+'sa',
+            'pohjoissuomessa': 'poh'+h+'jois'+h+'suo'+h+'mes'+h+'sa',
+            'kielenopetukseen': 'kie'+h+'len'+h+'o'+h+'pe'+h+'tuk'+h+'seen',
+            'erikoisluokkien': 'e'+h+'ri'+h+'kois'+h+'luok'+h+'ki'+h+'en',
+            'opinahjoiksi': 'o'+h+'pin'+h+'ah'+h+'joik'+h+'si',
+            'diskriminaation': 'dis'+h+'kri'+h+'mi'+h+'naa'+h+'ti'+h+'on',
+            'Oppimateriaalien': 'Op'+h+'pi'+h+'ma'+h+'te'+h+'ri'+h+'aa'+h+'li'+h+'en',
+            'avoimien': 'a'+h+'voi'+h+'mi'+h+'en',
+            'lisenssien': 'li'+h+'sens'+h+'si'+h+'en',
+            'veronmaksajien': 've'+h+'ron'+h+'mak'+h+'sa'+h+'ji'+h+'en',
+            'opettajien': 'o'+h+'pet'+h+'ta'+h+'ji'+h+'en',
+            'maailma': 'maa'+h+'il'+h+'ma',
+            'hapanimelästä': 'ha'+h+'pan'+h+'i'+h+'me'+h+'läs'+h+'tä',
         };
     }
 
