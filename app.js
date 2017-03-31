@@ -5420,7 +5420,8 @@ if (!this.Reading) {
         _textContainer = document.querySelector( this.root );
 
         this.firstPage = [
-            'Kiitos, että autat meitä! Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+            //'Kiitos, että autat meitä! Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, sillä tämä ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirellä ”Jatka”, niin pääset seuraavalle sivulle.'
+            'Tämä on aloitussivu. Lue sen teksti kokonaan alusta loppuun normaalilla lukunopeudellasi. Sivun avulla keräämme tietoa siitä, miten kauan katseesi viipyy sanoissa. Kerätyn tiedon perusteella saamme algoritmille parametrin, joka määrää, miten nopeasti sanat jatkossa tavuttuvat niitä lukiessasi.'
         ];
 
         this.texts = [
@@ -5830,6 +5831,35 @@ if (!this.Reading) {
                 'Rovaniemi sijaitsee aivan napapiirin lähellä.',
                 'Joulupukin pajakylä sijaitsee Rovaniemellä.',
                 ],
+            ],
+
+            [
+                [
+                'Koulutuspolitiikkaa|h1',
+                'Kieltä osaamattomat maahanmuuttajalapset on ensin laitettava erilliseen kielenopetukseen ennen normaaleihin opetusryhmiin sijoittamista. Kunnissa, joissa maahanmuuttajaväestö on päässyt keskittymään tietyille alueille, maahanmuuttajataustaisia oppilaita tulisi pyrkiä hajauttamaan eri kouluihin. Maahanmuuttajaoppilaiden keskittyminen vain tiettyihin kouluihin heikentää heidän sopeutumistaan suomalaiseen yhteiskuntaan.'
+                ],
+                [
+                'Lahjakkaiden oppilaiden erikoisluokkien lisääntyminen ei saa johtaa yhtenäiskoulun hajoamiseen ja lohkoutumiseen paremman väen ja huonomman väen opinahjoiksi. Resurssit on jaettava tasapuolisesti niin, ettei erikoisluokkia suosiota. Sen sijaan ns. positiivisen diskriminaation mukaisesti lisäpanostukset kohdistetaan vaikeuksissa olevien oppilaiden opetukseen ja pienryhmäopetukseen.'
+                ],
+                [
+                'Oppimateriaalien hankintalogiikkaa on kehitettävä avoimien lisenssien suuntaan. Mikäli oppimateriaalit ostettaisiin ja tuotettaisiin avoimesti lisensoituna, ne olisivat opettajien muokattavissa ja kaikkien veronmaksajien saatavilla. Esimerkiksi varaamalla opettajien työaikaa oppimateriaalityöhön voidaan hyvinkin nopeasti saada laadukkaita, vapaasti käytettäviä oppimateriaaleja laajaan käyttöön.'
+                ]
+            ],
+            [
+                [
+                'Mielensäpahoittaja|h1',
+                'Kyllä minä niin mieleni pahoitin, kun halutaan että Sysi-Suomessa tehdään tuorepastaa.',
+                'Kysyin kirjastovirkailijalta mistä minä löydän järkevän ruokakirjan, jossa suositellaan sellaisten elikoiden lihoja, jotka jaksavat kävellä itse laitumeltaan teurastamon kautta minun pataani. Jossa käytetään oman sadon perunoita ja jossa ruokajuomaksi suositellaan piimää eikä punaviiniä.'
+                ],
+                [
+                'Kirjastovirkailija tutki tietokonettaan, mutisi ja heilutti päätään. Sitten hän kävi katsomassa poistokirjat, muttei löytänyt määreitäni vastaavaa kirjaa. Oli olemassa Helppoa kotiruokaa -niminen teos, mutta se oli joko kadonnut tai varastettu. Vaikka mitä jauhelihasta -kirja oli repeytynyt ja hävitetty. Enemmän nykyisin lainataan etnistä, hän sanoi ja vei minut kädestä pitäen ruokakirjahyllylle.'
+                ],
+                [
+                'Oli Italialainen keittiö, Pankleesialaisia makuja ja Kasvissyöjän maailma. Varmasti tarpeellisia Intiassa, Pankalesissa ja suuren kaupungin itukerhossa, mutta kyllä en aloita ruokaopiskeluitani simpukka-valkoviinikastikkeesta. Myöskään en aloita sitä hapanimelästä katkarapumuhennoksesta. Ja haluan kertoa keittokirjan tekijöille, että minun pihassani kasvaa koivu, ei kookospalmu.'
+                ],
+                [
+                'Entä luuleeko kasvikeittokirjan tekijä, että minä teen lihajäljitelmiä soijasta ja linsseistä? Jos haluaisin syödä kasviksia, söisin perunaa ja punajuurta niin kuin lapsena oli pakko. Nauriilla minun esi-isäni pysyivät hengissä. Mutta tietenkin minä syön vähintään kolme kertaa viikossa lihaa, jos sitä vain löytyy.'
+                ]
             ]
         ];
 
