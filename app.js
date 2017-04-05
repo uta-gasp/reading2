@@ -2762,8 +2762,10 @@ if (!this.Reading) {
     var _services;
     var _utils;
 
+    const OPIONS_NAME = 'reading2';
+
     function loadSettings(cssRules) {
-        var options = JSON.parse( localStorage.getItem('options') );
+        var options = JSON.parse( localStorage.getItem( OPIONS_NAME ) );
         if (!options) {
             return;
         }
@@ -2831,7 +2833,7 @@ if (!this.Reading) {
             options.css[ rule.selector + '____' + rule.name ] = rule.value;
         });
 
-        localStorage.setItem( 'options', JSON.stringify( options) );
+        localStorage.setItem( OPIONS_NAME, JSON.stringify( options) );
     }
 
     function componentToHex( c ) {
