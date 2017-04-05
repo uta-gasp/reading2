@@ -2724,7 +2724,7 @@ if (!this.Reading) {
 
         const reset = this._slideout.querySelector( '.reset' );
         reset.addEventListener( 'click', () => {
-            localStorage.removeItem( 'options' );
+            localStorage.removeItem( OPIONS_NAME );
             location.reload();
         });
 
@@ -2762,7 +2762,7 @@ if (!this.Reading) {
     var _services;
     var _utils;
 
-    const OPIONS_NAME = 'reading2';
+    const OPIONS_NAME = 'options';
 
     function loadSettings(cssRules) {
         var options = JSON.parse( localStorage.getItem( OPIONS_NAME ) );
