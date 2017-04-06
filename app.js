@@ -5434,7 +5434,7 @@ if (!this.Reading) {
 
         this.firstPage = [
             //'Kiitos, etta autat meita! Lue teksti rauhassa loppuun asti. Sinulla ei ole kiire, silla tama ei ole kilpailu. Kun olet lukenut sivun loppuun, klikkaa hiirella ”Jatka”, niin paaset seuraavalle sivulle.'
-            'Tama on aloitussivu. Lue sen teksti kokonaan alusta loppuun normaalilla lukunopeudellasi. Sivun avulla keraamme tietoa siita, miten kauan katseesi viipyy sanoissa. Keratyn tiedon perusteella saamme algoritmille parametrin, joka maaraa, miten nopeasti sanat jatkossa tavuttuvat niita lukiessasi.'
+            'Tämä on aloitussivu. Lue sen teksti kokonaan alusta loppuun normaalilla lukunopeudellasi. Sivun avulla keräämme tietoa siitä, miten kauan katseesi viipyy sanoissa. Kerätyn tiedon perusteella saamme algoritmille parametrin, joka määrää, miten nopeasti sanat jatkossa tavuttuvat niitä lukiessasi.'
         ];
 
         this.texts = [
